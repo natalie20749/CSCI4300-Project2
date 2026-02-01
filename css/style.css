@@ -1,95 +1,256 @@
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fdf3f3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  }
+main {
+  flex: 1;
+}
 
 /****************   Nav Section **********************/
 nav {
-	
+	background-color: #f3c7c7;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /***********************  Footer Section   **************************/
 footer {
-	
+	background-color: #f3c7c7;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: auto;
 }
 
 /*********** Splash Page ************************/
 header {
-
+  background-color: #fdf3f3;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 header h1 {
-  
+  font-family: "Inter Tight", sans-serif;
+  font-size: 2.5rem;
+  color: #1f2933;
 }
 
 header img {
+  border-radius: 50%;
+  border: 3px solid #1f2933;
 }
 
 .address {
- 
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 0.75rem;
 }
 
 .tagline {
-  
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
 }
 
 /************* Sections ********************/
 hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #f3c7c7,
+    transparent
+  );
+  max-width: 600px;
+  margin: 0 auto; 
+}
 
+section {
+  background-color: #fdf3f3;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: grid;
+  gap: 1rem;
 }
 
 section h3 {
-  
+  font-family: "Inter Tight", sans-serif;
+  color: #1f2933;
+  font-size: 1.5rem;
+  position: relative;
+  padding-left: 0.75rem;
+}
+
+section h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  height: 1.2rem;
+  width: 4px;
+  background-color: #c23b3b;
+  border-radius: 2px;
 }
 
 section dl {
-  
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 1.5rem;
+  row-gap: 0.5rem;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 section ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding-left: 0;
+}
 
+section ul li {
+  background-color: #f3c7c7;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
 }
 
 section a {
-
+  color: #c23b3b;
+  text-decoration: none;
 }
 
 section a:hover {
+  color: #c23b3b;
+  text-decoration: underline;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 4rem auto 2rem auto;
+}
+
+.two-col section {
+  background-color: #fdf3f3;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  display: grid;
+  gap: 1rem;
 }
 
 /**************   Projects   *****************/
 .three-col {
-	
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .card img {
-
+  height: 190px;     
+  object-fit: cover;        
+  border-radius: 6px;
+  margin: 0 auto 0.75rem auto;
+  border: 2px solid #1f2933;
+  display: block;
 }
 
 .card {
-  
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.text-container {
+  margin-top: 15px;
+  padding: 2px 16px;
 }
 
 /**************   Responsiveness   *****************/
 @media (max-width: 680px) {
     nav {
-      
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
     }
 
     .three-col {
-      
+      grid-template-columns: 1fr;
+      justify-items: center;
     }
+
+    .two-col {
+    grid-template-columns: 1fr;
+  }
+
 }
 
 /**************   Contact Page   *****************/
 .one-col {
+  grid-template-columns: 1fr;
+  max-width: 500px;
+  margin: 3rem auto 0 auto;
+  padding: 1.5rem;
+  background-color: #f3c7c7;
+}
 
+.contact-header {
+  text-align: center;
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.contact-header h1 {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 2.5rem;
+  color: #1f2933;
+}
+
+.contact-header p.address {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0 auto;
 }
 
 input {
-  
-
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 textarea {
-   
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: "Inter Tight", sans-serif;
 }
