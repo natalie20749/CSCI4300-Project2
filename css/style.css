@@ -1,7 +1,21 @@
+:root {
+  --nav-footer: #3a1a2d; /*#2b1321;*/
+  --text-main: #f6f2f4;
+  --text-muted: #d6c6ce;
+  --links: #d4779a;
+  --accent-top: #b06c87;
+  --accent-bottom: #6f3a52;
+  --card-gradient: linear-gradient(
+    135deg,
+    #4a1d35 0%,
+    #2b1321 45%,
+    #1a0c14 100%
+  );
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f7f4;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,31 +23,63 @@ body {
 
 main {
   flex: 1;
+  background: linear-gradient(
+    to bottom,
+    #f8edf2 0%,
+    #f3e4ec 100%
+  );
 }
 
 /****************   Nav Section **********************/
 nav {
-	background-color: #d7e3d7;
+	background-color: var(--nav-footer);
+  color: var(--links);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+nav a {
+  color: var(--links);
+  transition: color 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+}
+
+nav a:hover {
+  color: #d19fb2; 
+}
+
 /***********************  Footer Section   **************************/
 footer {
-	background-color: #d7e3d7;
-  padding: 1rem;
+	background-color: var(--nav-footer);
+  color: #f9fafb;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   margin-top: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+footer p {
+  color: var(--links); 
+}
+
+footer p a:hover {
+  color: #d19fb2;  
+  text-decoration-color: #d19fb2;
+}
+
+footer a:visited {
+  color: inherit;
 }
 
 /*********** Splash Page ************************/
 header {
-  background-color: #f4f7f4;
   text-align: center;
   padding: 2rem 1rem;
 }
@@ -41,7 +87,7 @@ header {
 header h1 {
   font-family: "Inter Tight", sans-serif;
   font-size: 2.5rem;
-  color: #1f2933;
+  color: #5c3a4a;
 }
 
 header img {
@@ -56,11 +102,11 @@ header img {
 }
 
 .tagline {
-  max-width: 600px;
+  font-size: 1.1rem;
+  color: #5c3a4a;
+  font-style: italic;
+  max-width: 650px;
   margin: 0 auto;
-  font-size: 1rem;
-  color: #374151;
-  line-height: 1.6;
 }
 
 /************* Sections ********************/
@@ -70,7 +116,7 @@ hr {
   background: linear-gradient(
     to right,
     transparent,
-    #4F6F52,
+    #d18aa8,
     transparent
   );
   max-width: 600px;
@@ -78,7 +124,6 @@ hr {
 }
 
 section {
-  background-color: #f4f7f4;
   padding: 1.5rem;
   border-radius: 10px;
   display: grid;
@@ -87,20 +132,29 @@ section {
 
 section h3 {
   font-family: "Inter Tight", sans-serif;
-  color: #1f2933;
   font-size: 1.5rem;
   position: relative;
-  padding-left: 0.75rem;
+  padding-left: 1rem;
+  letter-spacing: 0.02em;
+  color: #d18aa8;
+}
+
+.projects-header h3 {
+  color: #5c3a4a;
 }
 
 section h3::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.2rem;
-  height: 1.2rem;
+  top: 0.15em;
+  height: 1.15em;
   width: 4px;
-  background-color: #4F6F52;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-top),
+    var(--accent-bottom)
+  );
   border-radius: 2px;
 }
 
@@ -109,8 +163,6 @@ section dl {
   grid-template-columns: max-content 1fr;
   column-gap: 1.5rem;
   row-gap: 0.5rem;
-  justify-content: center;
-  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -124,14 +176,25 @@ section ul {
 }
 
 section ul li {
-  background-color: #d7e3d7;
-  padding: 0.4rem 0.75rem;
+  background:
+    linear-gradient(
+      135deg,
+      #d4779a,
+      #a84a6a
+    );
+  color: #2a0d1c;
+  padding: 0.45rem 0.9rem;
   border-radius: 999px;
   font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 section a {
-  color: #4F6F52;
+  color: var(--links);
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -148,13 +211,56 @@ section a:hover {
 }
 
 .two-col section {
-  background-color: #eef3ee;
-  padding: 1.5rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  background: var(--card-gradient);
+  color: var(--text-main);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow:
+    0 16px 35px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
 }
+
+.two-col section dt {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #f9fafb;
+}
+
+.two-col section dd {
+  margin-left: 0;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-bottom: 0.75rem;
+}
+
+.education-list,
+.honors-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 0.35rem;
+  max-width: none;
+  margin: 0;
+  text-align: left;
+}
+
+.education-list dt,
+.honors-list dt {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.education-list dd,
+.honors-list dd {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.85rem;
+}
+
 
 /**************   Projects   *****************/
 .three-col {
@@ -162,27 +268,88 @@ section a:hover {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5rem;
   margin-top: 1.5rem;
+  margin-bottom: 3rem;
 }
 
-.card img {
-  height: 190px;     
-  object-fit: cover;        
-  border-radius: 6px;
-  margin: 0 auto 0.75rem auto;
-  border: 2px solid #1f2933;
-  display: block;
+.project-icon {
+  display: block;          
+  margin: 0 auto 0.75rem;    
+  font-size: 5rem;     
+  line-height: 1;
+  background: linear-gradient(
+    135deg,
+    #c98aa3,
+    #9a5f76
+  );
+  background-clip: text; 
+  -webkit-background-clip: text;
+  color: transparent;  
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 2px 8px rgba(154, 95, 118, 0.3);
+}
+
+.project-title {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 1.25rem;      
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #d18aa8;              
+  margin: 0.75rem 0 0.5rem;
+  position: relative;
+  padding-left: 0.9rem;
+}
+
+.project-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  height: 1em;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-top),
+    var(--accent-bottom)
+  );
+  border-radius: 2px;
 }
 
 .card {
-  background-color: #eef3ee;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+  position: relative;
+  background: var(--card-gradient);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow:
+    0 20px 35px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.12),
+    transparent 70%
+  );
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: translateY(-4px);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.16);
 }
 
 .text-container {
@@ -213,10 +380,27 @@ section a:hover {
 .one-col {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 500px;
-  margin: 3rem auto 0 auto;
-  padding: 1.5rem;
-  background-color: #d7e3d7;
+  gap: 1.25rem;
+  max-width: 520px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: var(--card-gradient);
+  border-radius: 20px;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+.one-col label {
+  font-family: "Inter Tight", sans-serif;
+  font-size: 1.05rem;         
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #d18aa8;              
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.6rem;
 }
 
 .contact-header {
@@ -236,6 +420,7 @@ section a:hover {
   margin: 0 auto;
 }
 
+
 input {
   width: 100%;
   padding: 0.6rem;
@@ -251,4 +436,35 @@ textarea {
   border: 1px solid #cbd5e1;
   border-radius: 4px;
   font-size: 1rem;
+}
+
+.one-col button {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  background:
+    linear-gradient(
+      135deg,
+      #d4779a,
+      #a84a6a
+    );
+  color: #2a0d1c;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.one-col button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 10px 22px rgba(0, 0, 0, 0.35);
 }
